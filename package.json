@@ -1,5 +1,27 @@
 {
+  "name": "lab3",
+  "version": "1.0.0",
+  "description": "Solution for the third TypeScript lab",
+  "private": true,
   "scripts": {
-    "test": "jest"
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eternal-despair/visualprogramming.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/eternal-despair/visualprogramming/issues"
+  },
+  "homepage": "https://github.com/eternal-despair/visualprogramming#readme",
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   }
 }
