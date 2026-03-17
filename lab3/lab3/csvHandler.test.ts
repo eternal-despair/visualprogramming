@@ -1,7 +1,9 @@
+import { describe, it, expect, vi, beforeEach, Mock } from 'vitest';
 import { csvToJSON, formatCSVFileToJSONFile } from './csvHandler';
 import * as fs from 'node:fs/promises';
 
-jest.mock('node:fs/promises');
+// Перехватываем модуль fs/promises через Vitest
+vi.mock('node:fs/promises');
 
 describe('Lab 3 Tests', () => {
 
@@ -21,13 +23,14 @@ describe('Lab 3 Tests', () => {
 
         it('должна выбрасывать ошибку при неверном количестве столбцов', () => {
             const input = ["col1,col2", "val1"];
-            expect(() => csvToJSON(input, ',')).toThrow(Error);
+            expect(() => csvToJSON(input, ',')).toThrow();
         });
     });
 
     describe('formatCSVFileToJSONFile', () => {
         beforeEach(() => {
-            jest.clearAllMocks();
+            // Очищаем историю вызовов перед каждым тестом
+            vi.clearAllMocks();
         });
 
         it('должна читать файл и записывать результат, используя заглушки', async () => {
@@ -35,14 +38,18 @@ describe('Lab 3 Tests', () => {
             const outputPath = 'test_output.json';
             
             const mockCsvContent = "name;age\nAlice;25";
-            (fs.readFile as jest.Mock).mockResolvedValue(mockCsvContent);
+            
+            // Типизируем readFile как мок и задаем возвращаемое значение
+            (fs.readFile as Mock).mockResolvedValue(mockCsvContent);
 
             await formatCSVFileToJSONFile(inputPath, outputPath, ';');
 
+            // Проверяем, что файл был прочитан с правильными аргументами
             expect(fs.readFile).toHaveBeenCalledWith(inputPath, 'utf-8');
 
             const expectedJson = JSON.stringify([{ name: 'Alice', age: 25 }], null, 2);
 
+            // Проверяем, что результат был записан в нужный файл
             expect(fs.writeFile).toHaveBeenCalledWith(outputPath, expectedJson);
         });
     });
