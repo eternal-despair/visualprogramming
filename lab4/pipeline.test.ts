@@ -30,9 +30,9 @@ describe('Lab 4: Pipeline Functions', () => {
         const result = search(users);
 
         expect(result).toEqual([
-            { id: 2, name: "Гога", surname: "Вальхалла", age: 33, city: "Екб" },
-            { id: 1, name: "Русик", surname: "Абру", age: 34, city: "Екб" },
-            { id: 3, name: "Нурик", surname: "Джоин", age: 35, city: "Нск" },
+            { id: 2, name: "John", surname: "Doe", age: 33, city: "NY" },
+            { id: 1, name: "John", surname: "Doe", age: 34, city: "NY" },
+            { id: 3, name: "John", surname: "Doe", age: 35, city: "LA" },
         ]);
     });
 
