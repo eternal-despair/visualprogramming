@@ -1,0 +1,50 @@
+.book-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.book-card {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  borderborder-radius: 8px;
+}
+
+.cover-container {
+  width: 100%;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.no-cover {
+  color: #888;
+  font-size: 14px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.authors {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
