@@ -1,4 +1,4 @@
-import { City, WeatherData, AirPollution } from '../types';
+import type { City, WeatherData, AirPollution } from '../types';
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
@@ -33,3 +33,5 @@ export const getAirPollution = async (lat: number, lon: number): Promise<AirPoll
   const data = await response.json();
   return data.list[0]; // Берем текущее загрязнение
 };
+
+console.log('update');
